@@ -5,7 +5,7 @@ from numpy import *
 from itertools import cycle
 import json
 
-data={"screen_width": 1280, "screen_height": 720, "scr": ["1280x720"], "speed": 60}  
+data={"screen_width": 1280, "screen_height": 720, "scr": ["1280x720"], "speed": 90}  
 try:
     with open('settings.txt') as setfile:
         data=json.load(setfile)
@@ -18,7 +18,7 @@ WIN_SIZE = [data["screen_width"],data["screen_height"]]
 MAX_FRAME_RATE = data['speed']
 SPEED_RATE = MAX_FRAME_RATE / 30
 BALL_INITIAL_SPEED = [SPEED_RATE, -SPEED_RATE]
-PADDLE_INITIAL_SPEED = SPEED_RATE * 2
+PADDLE_INITIAL_SPEED = SPEED_RATE *2
 COL_BACKGROUND = 0, 0, 0
 MAX_PLAYER_LIFE = 2
 
@@ -246,7 +246,7 @@ class Brick(pygame.sprite.Sprite):
         #           2 = advanced
         #           3 = undestroyable
         #           4 = special
-        self.image = pygame.image.load(LevelDefines.BRICK_IMAGE[brick_type]).convert_alpha()
+        self.image = pygame.transform.scale(pygame.image.load(LevelDefines.BRICK_IMAGE[brick_type]).convert_alpha(),(75,25))
         # if type == 'normal':
         # self.image = pygame.image.load("res/img/BrickBlue.png").convert_alpha()
         self.rect = self.image.get_rect()
@@ -267,7 +267,7 @@ class Brick(pygame.sprite.Sprite):
 
     def change_status(self, new_status):
         self.status = new_status
-        self.image = pygame.image.load(LevelDefines.BRICK_IMAGE[new_status]).convert_alpha()
+        self.image = pygame.transform.scale(pygame.image.load(LevelDefines.BRICK_IMAGE[new_status]).convert_alpha(),(75,25))
 
 
 class Paddle(pygame.sprite.Sprite):
@@ -459,7 +459,8 @@ def game_intro():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         quit()
-
+                    if event.key == pygame.K_f:
+                        pygame.display.toggle_fullscreen()
             # key events
             pressed = pygame.key.get_pressed()
             if pressed[pygame.K_RETURN]:
@@ -686,7 +687,8 @@ def game_over():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         quit()
-
+                    if event.key == pygame.K_f:
+                        pygame.display.toggle_fullscreen()
             # key events
             pressed = pygame.key.get_pressed()
             if pressed[pygame.K_SPACE]:

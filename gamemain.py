@@ -3,8 +3,6 @@ import pygame
 import LevelDefines
 from numpy import *
 from itertools import cycle
-from random import randint
-from os import listdir
 import json
 
 data={"screen_width": 1280, "screen_height": 720, "scr": ["1280x720"], "speed": 60}  
@@ -662,9 +660,6 @@ def game_loop():
 
 
 def game_over():
-    """
-    Game Over screen.
-    """
     global is_game_intro
     global is_game_over
     global is_highscore
@@ -733,7 +728,3 @@ def main():
             game_over()
 
     pygame.quit()
-
-
-if __name__ == "__main__":
-    main()

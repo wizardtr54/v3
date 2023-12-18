@@ -67,9 +67,9 @@ BRICK_SPECIAL = 4
 # brick sprite image according to status
 BRICK_IMAGE = \
     [
-        "res/img/brick_destr.png",
-        "res/img/brick_norm.png",
-        "res/img/brick_adv.png",
-        "res/img/brick_undestr.png",
+        "res/img/blank.png",
+        "res/img/blue.png",
+        "res/img/gold.png",
+        "res/img/red.png",
         "res/img/brick_special.png"
     ]

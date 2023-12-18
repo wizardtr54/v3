@@ -437,7 +437,7 @@ def game_intro():
         arr_left_img_rect = arr_left_img.get_rect()
         arr_right_img_rect = arr_right_img.get_rect()
 
-        help_font = pygame.font.Font("res/font/Game_Played.otf", 14)
+        help_font = pygame.font.Font("res/font/Game_Played.otf", 18)
 
         help_caption_move = help_font.render("MOVE: ", True, (102, 101, 175), COL_BACKGROUND).convert_alpha()
         help_caption_exit = help_font.render("QUIT: ", True, (102, 101, 175), COL_BACKGROUND).convert_alpha()
@@ -483,12 +483,12 @@ def game_intro():
             window.blit(arr_left_img, arr_left_img_rect)
             pygame.draw.rect(window, COL_BACKGROUND, arr_right_img_rect)
             window.blit(arr_right_img, arr_right_img_rect)
-            window.blit(help_caption_start, (text_pos_x, arr_left_img_rect.y + help_caption_move.get_height() ))
+            window.blit(help_caption_start, (text_pos_x, arr_left_img_rect.y + help_caption_move.get_height() +3))
             window.blit(help_descr_start,
-                        (arr_right_img_rect.x - 10, arr_left_img_rect.y + help_caption_move.get_height() ))
-            window.blit(help_caption_exit, (text_pos_x, arr_left_img_rect.y + help_caption_move.get_height()+15))
+                        (arr_right_img_rect.x - 10, arr_left_img_rect.y + help_caption_move.get_height()+3 ))
+            window.blit(help_caption_exit, (text_pos_x, arr_left_img_rect.y + help_caption_move.get_height()+27))
             window.blit(help_descr_exit,
-                        (arr_right_img_rect.x - 10, arr_left_img_rect.y + help_caption_move.get_height()+15))
+                        (arr_right_img_rect.x - 10, arr_left_img_rect.y + help_caption_move.get_height()+27))
 
             # update screen
             pygame.display.update()

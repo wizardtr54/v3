@@ -1,2 +1,3 @@
 import gamemain
-gamemain.main()
+import yes
+yes.play()

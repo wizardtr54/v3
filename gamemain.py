@@ -2,7 +2,6 @@ import sys
 import pygame
 import LevelDefines
 from numpy import *
-from itertools import cycle
 import json
 
 data={"screen_width": 1280, "screen_height": 720, "scr": ["1280x720"], "speed": 90}  
@@ -109,7 +108,7 @@ class Ball(pygame.sprite.Sprite):
         # initialize sprite class object
         pygame.sprite.Sprite.__init__(self)
         # assign image for ball
-        self.image = pygame.image.load("res/img/BallOrangeSmall.png").convert_alpha()
+        self.image = pygame.image.load("res/img/ball.png").convert_alpha()
         self.rect = self.image.get_rect()
         # initial speed
         self.speed = BALL_INITIAL_SPEED
@@ -183,7 +182,7 @@ class Ball(pygame.sprite.Sprite):
         :param paddle: the paddle object.
         :return: True if the ball is below the paddle, False if not.
         """
-        if self.rect.bottom - self.rect.height / 2 >= paddle.rect.top:
+        if self.rect.bottom - self.rect.height / 2 >= paddle.rect.bottom:
             return True
         return False
 
@@ -517,7 +516,7 @@ def game_loop():
 
     # init class instances
     paddle = Paddle()
-    ball_pos = [paddle.rect.x + paddle.rect.width / 2, paddle.rect.y - 10]
+    ball_pos = [paddle.rect.x + paddle.rect.width / 2, paddle.rect.y ]
     ball = Ball(ball_pos)
     player = Player()
 

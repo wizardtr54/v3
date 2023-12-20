@@ -1,3 +1,4 @@
-import gamemain
 import yes
+import gamemain
+#gamemain.main()
 yes.play()

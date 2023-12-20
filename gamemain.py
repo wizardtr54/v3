@@ -3,6 +3,7 @@ import pygame
 import LevelDefines
 from numpy import *
 import json
+from itertools import cycle
 
 data={"screen_width": 1280, "screen_height": 720, "scr": ["1280x720"], "speed": 90}  
 try:

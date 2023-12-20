@@ -46,8 +46,11 @@ CLOCK = pygame.time.Clock()
 
 window = pygame.display.set_mode(WIN_SIZE)
 
+
+
 # Paddles
 def play_pong():
+    RUNNING=True
 
     player = pygame.Rect(0, 0, 10, 100)
     player.center = (WIDTH-100, HEIGHT/2)
@@ -55,7 +58,9 @@ def play_pong():
     opponent = pygame.Rect(0, 0, 10, 100)
     opponent.center = (100, HEIGHT/2)
 
-    player_score, opponent_score = 0, 0
+    player_score=0
+    opponent_score = 0
+    win_point=10
 
     # Ball
 
@@ -64,8 +69,14 @@ def play_pong():
 
     x_speed, y_speed = 1, 1
 
-    while True:
+    while RUNNING:
+        if player_score or opponent_score >= win_point:
+            is_game_over=True
         keys_pressed = pygame.key.get_pressed()
+
+        if keys_pressed[pygame.K_SPACE]:
+            if not ball.moving:
+                ball.moving = True
 
         if keys_pressed[pygame.K_UP]:
             if player.top > 0:
